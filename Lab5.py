@@ -5,23 +5,23 @@
 # *   *
 # *****
 def hollow_square(n):
-        # pattern = [1 , 0 , 0 , 0 , 1 ]
+    if n <= 0:
+        return None
+
     result = ""
+    row = 0
     
-    count = [1/n , 0/n , 0/n , 0/n , 1/n]
-    while count == 1:
-        for i in range(n,n + 1):
-            for j in range(n,n + 1):
-                result += "*"
-            print("*****", end=" ")
-        result += "\n"
-    while count == 0:
-        for i in range(n,n + 1):
-            for j in range(n,n + 1):
-                result += "*   *"
-            print("*   *", end=" ")
-        result += "\n"
+    while row < n:
+        if row == 0 or row == n - 1:
+            result += "*" * n
+        else: 
+            result += "*" + " " * (n - 2) + "*" if n > 1 else "*"
+        if row < n - 1:
+            result += "\n"
+
+        row += 1
     return result
+
 
 # 1
 # 12
